@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"], input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button[type="submit"], button[type="reset"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #3e8e41;
+        }
+
+        a {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #f58c02;
+        }
+
+        .home-button {
+            display: block;
+            text-align: center;
+            color: #fff;
+            background-color: #f58c02;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #fff;
+            color: #3e8e41;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-meter-container {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .password-meter {
+            display: flex;
+            height: 100%;
+        }
+
+        .password-meter span {
+            display:inline-block;
+width: 25%;
+height: 100%;
+transition: width 0.3s ease-in-out;
+}    .password-meter span.weak {
+        background-color: #ff6b6b;
+    }
+
+    .password-meter span.moderate {
+        background-color: #ffa34d;
+    }
+
+    .password-meter span.strong {
+        background-color: #ffc153;
+    }
+
+    .password-meter span.very-strong {
+        background-color: #42c39a;
+    }
+
+    .password-strength-text {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Signup Form</h1>
+    <form action="CustomerSignup" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number"> <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+    <label for="password">Password:</label>
+    <div class="password-container">
+        <input type="password" id="password" name="password" required minlength="5" placeholder="Enter your password">
+        <div class="password-meter-container">
+            <div class="password-meter">
+                <span class="weak"></span>
+                <span class="moderate"></span>
+                <span class="strong"></span>
+                <span class="very-strong"></span>
+            </div>
+        </div>
+        <div class="password-strength-text"></div>
+    </div>
+    <br>
+   
+
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other">Other</label> <br> <br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required placeholder="Enter your date of birth">
+    <center>
+        <button type="submit">Signup</button>
+        <button type="reset">Cancel</button>
+        <br> <br> <a href="login.html">Already have an account?</a><br><br>
+        <a href="home.html" class="home-button">Home</a>
+    </center>
+</form>
+
+<script>
+    const passwordInput = document.getElementById("password");
+    const passwordMeter = document.querySelector(".password-meter");
+    const weak = document.querySelector(".password-meter span.weak");
+    const moderate = document.querySelector(".password-meter span.moderate");
+    const strong = document.querySelector(".password-meter span.strong");
+    const veryStrong = document.querySelector(".password-meter span.very-strong");
+    const passwordStrengthText = document.querySelector(".password-strength-text");
+
+    // Define regular expressions to match password criteria
+    const capitalRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    const numberRegex = /\d/;
+    const specialCharRegex = /[!@#$%^&*()/[]{}|<>,.?~`_-]/;
+    function getPasswordStrength(password) {
+        let strength = 0;
+
+        if (password.length >= 5 && password.length <= 7) {
+            strength = 1;
+        } else if (password.length > 7 && password.length <= 10) {
+            strength = 2;
+        } else if (password.length > 10 && password.length <= 12) {
+            strength = 3;
+        } else if (password.length > 12) {
+            strength = 4;
+        }
+
+        if (capitalRegex.test(password) && lowercaseRegex.test(password) && numberRegex.test(password) && specialCharRegex.test(password)) {
+            strength += 1;
+        }
+
+        return strength;
+    }
+
+    function updatePasswordMeter(passwordStrength) {
+        switch (passwordStrength) {
+            case 1:
+                weak.style.width = "25%";
+                moderate.style.width = "0";
+                strong.style.width = "0";
+                veryStrong.style.width = "0";
+                weak.classList.add("active");
+                moderate.classList.remove("active");
+                strong.classList.remove("active");
+                veryStrong.classList.remove("active");
+                passwordStrengthText.innerText = "Weak";
+                passwordStrengthText.style.color = "#ff6b6b";
+                break;
+            case 2:
+                weak.style.width = "50%";
+                moderate.style.width = "0";
+                strong.style.width = "0";
+                veryStrong.style.width = "0";
+                weak.classList.add("active");
+                moderate.classList.remove("active");
+                strong.classList.remove("active");
+                veryStrong.classList.remove("active");
+                passwordStrengthText.innerText = "Moderate";
+                passwordStrengthText.style.color = "#ffa34d";
+                break;
+            case 3:
+                weak.style.width = "75%";
+                moderate.style.width = "0";
+                strong.style.width = "0";
+                veryStrong.style.width = "0";
+                weak.classList.add("active");
+                moderate.classList.remove("active");
+                strong.classList.remove("active");
+                veryStrong.classList.remove("active");
+                passwordStrengthText.innerText = "Strong";
+                passwordStrengthText.style.color = "#ffc153";
+                break;
+            case 4:
+                weak.style.width = "100%";
+                moderate.style.width = "0";
+                strong.style.width = "0";
+                veryStrong.style.width = "0";
+                weak.classList.add("active");
+                moderate.classList.remove("active");
+                strong.classList.remove("active");
+                veryStrong.classList.remove("active");
+                passwordStrengthText.innerText = "Very Strong";
+                passwordStrengthText.style.color = "#42c39a";
+                break;
+            case 0:
+            default:
+                weak.style.width = "0";
+                moderate.style.width = "0";
+                strong.style.width = "0";
+                veryStrong.style.width = "0";
+                weak.classList.remove("active");
+                moderate.classList.remove("active");
+                strong.classList.remove("active");
+                veryStrong.classList.remove("active");
+                passwordStrengthText.innerText = "";
+                passwordStrengthText.style.color = "#000";
+                break;
+        }
+    }
+
+    passwordInput.addEventListener("input", () => {
+        const passwordStrength = getPasswordStrength(passwordInput.value);
+        updatePasswordMeter(passwordStrength);
+    });
+</script>
+</body>
+</html>
+

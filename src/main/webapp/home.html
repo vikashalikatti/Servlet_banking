@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HOME</title>
+<link rel="icon" href="./bank.ico" type="image/x-icon">
+
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+	font-family: 'Acme', sans-serif;
+}
+
+.intro-heading {
+	font-size: 5rem;
+	color: black;
+	text-align: center;
+	text-shadow: 2px 2px 2px #000;
+}
+
+.graphic {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #2ecc71;
+	margin-top: 1rem;
+	opacity: 0;
+	animation: scaleIn 2s ease-in-out forwards 2s;
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0);
+		background-color: #2ecc71;
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+		background-color: #e74c3c;
+	}
+}
+
+.word {
+	display: inline-block;
+	opacity: 0;
+	animation: fadeIn 1s ease-in-out forwards;
+	transform: translateX(-20px);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.login-button, .signup-button, .Admin {
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 2rem;
+	font-size: 1.5rem;
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	opacity: 0;
+	animation: fadeIn 1s ease-in-out forwards 1s;
+	margin: 0 1rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in-out;
+}
+
+.login-button:hover, .signup-button:hover, .Admin:hover {
+	transform: translateY(-3px);
+	box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Additional CSS */
+.login-button {
+	background-color: #2ecc71;
+	color: #fff;
+}
+
+.signup-button {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.Admin {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.button-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.login-button:hover {
+	background-color: #27ae60;
+	color: #fff;
+}
+
+.signup-button:hover {
+	background-color: #c0392b;
+	color: #fff;
+}
+
+.Admin:hover {
+	background-color: #c0392b;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+	<div class="background-image"></div>
+	<h1 class="intro-heading">
+		<span class="word">Welcome</span> <span class="word">to</span> <span
+			class="word">Online</span> <span class="word">Banking</span>
+	</h1>
+	<div class="graphic"></div>
+	<!-- Add the simple transition graphic -->
+	
+
+	<br>
+	<br>
+	<div class="button-wrapper">
+		<button class="login-button">Login</button>
+		<br>
+		<button class="signup-button">Sign Up</button>
+		<br> <a href="admin.html"><button class="Admin">Login
+				As Admin</button></a>
+	</div>
+
+	<script>
+    const loginButton = document.querySelector('.login-button');
+	const signupButton = document.querySelector('.signup-button');
+	const adminButton = document.querySelector('.Admin');
+	const words = document.querySelectorAll('.word');
+
+	words.forEach((word, index) => {
+	  const delay = index * 200;
+	  setTimeout(() => {
+	    word.classList.add('fadeIn');
+	  }, delay);
+	});
+
+	loginButton.addEventListener('click', () => {
+	  window.location.href = 'login.html';
+	});
+
+	signupButton.addEventListener('click', () => {
+	  window.location.href = 'signup.html';
+	});
+
+	adminButton.addEventListener('click', () => {
+	  window.location.href = 'admin.html';
+	});
+
+	</script>
+</body>
+</html>

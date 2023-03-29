@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Account Created</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+}
+
+h1 {
+	color: #333;
+	text-align: center;
+	margin-top: 50px;
+}
+
+p {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 30px;
+}
+
+button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 50px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.5s ease-out;
+}
+
+button:hover {
+	background-color: #fff;
+	color: #3e8e41;
+	text-shadow: 0 0 5px #3e8e41;
+}
+
+button span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: #fff;
+	transform: translateX(-100%);
+	transition: all 0.5s ease-out;
+}
+
+button:hover span {
+	transform: translateX(0);
+}
+</style>
+</head>
+<body>
+	<h1>Account Created</h1>
+	<center>
+		<p>Click the button below to Go for Customer Home.</p>
+		<a href="customer_home.html">
+			<span><button>Home</button>
+			</span>
+		</a>
+	</center>
+</body>
+</html>
+
