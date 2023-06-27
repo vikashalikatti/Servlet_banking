@@ -91,7 +91,7 @@ a {
 		<h2>Your Account balance is:</h2>
 		<h2><%=account.getAmount()%></h2>
 		<a href="Account_home.html">Back to account home</a>
-		<%} %>>
+		<%} %>
 	</div>
 </body>
 </html>

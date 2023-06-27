@@ -158,7 +158,7 @@ button[type=reset] {
                 <button type="submit">Submit</button>
             </div>
         </form>
-        <%} %>>
+        <%} %>
     </div>
 </body>
 </html>

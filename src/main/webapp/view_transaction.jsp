@@ -175,6 +175,8 @@
             </tr>
             <% }} %>
         </table>
+        
     </div>
+    <center><a href="Account_home.html"><button type="button" style="background-color: blue">Back</button></a></center>
 </body>
 </html>
